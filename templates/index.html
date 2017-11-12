@@ -1,0 +1,18 @@
+<div class="page-header">
+    <h1>{% if num_tweets %}{{ num_tweets }}{% else %}0{% endif %} possible tweets saved. </h1>
+    <p><a href="{{ url_for('see_all_tweets') }}">See all tweets.</a></p>
+    <p><a href="{{ url_for('see_all_users') }}">See all twitter users.</a></p>
+</div>
+
+<form method="POST">
+	{{ form.hidden_tag() }}
+	{{ form.text.label }} {{ form.text() }}
+	{{ form.username.label }} {{ form.username() }}
+	{{ form.submit() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
